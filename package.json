@@ -17,6 +17,10 @@
     "@types/node": "^22.13.10"
   },
   "scripts": {
-    "start": "cds-serve"
-  }
+    "start": "cds-serve",
+    "watch-firstuiapp": "cds watch --open firstuiapp/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/firstuiapp"
+  ]
 }
