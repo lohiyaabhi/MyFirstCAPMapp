@@ -128,9 +128,19 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "idReject": {
+                      "press": "com.sap.firstuiapp.ext.controller.Controller.Rejection",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "Reject"
+                    }
                   }
                 }
-              }
+              },
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView"
             }
           }
         },
@@ -141,8 +151,33 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/StudentSet"
+              "contextPath": "/StudentSet",
+              "sectionLayout": "Tabs",
+              "content": {
+                "footer": {
+                  "actions": {
+                    "Final": {
+                      "press": "com.sap.firstuiapp.ext.controller.Controller.Finalize",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>final}"
+                    }
+                  }
+                }
+              }
             }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.sap.firstuiapp.ext.controller.ListReport"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "com.sap.firstuiapp.ext.controller.ObjectPage"
           }
         }
       }

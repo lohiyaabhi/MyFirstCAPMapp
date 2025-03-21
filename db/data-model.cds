@@ -81,6 +81,11 @@ context transaction {
         PARTNER_GUID : Association to master.businessPartner;
         LIFECYCLE_STATUS : String(1);
         OVERALL_STATUS : String(1);
+        //Association is losely coupled with PO item in case we want strong relation in that case implement composition
+        Items: Association to many poItems on Items.PARENT_KEY = $self; 
+        //Composition is required when we create PO item in Fiori using object page.
+        //Items: Composition of many poItems on Items.PARENT_KEY = $self; 
+
     }
     
     entity poItems : customCommons.Amount {

@@ -3,7 +3,9 @@ using { abhishekdb.master as master ,
 
 service FirstService @(path : 'FirstService'){
 
-    entity StudentSet as projection on master.student;
+    entity StudentSet @(
+        odata.draft.enabled: true
+    ) as projection on master.student;
     entity booksSet as projection on master.books;
     entity StandardSet as projection on master.standard;
     entity RentalSet as projection on trans.rentals;
