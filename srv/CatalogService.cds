@@ -6,7 +6,7 @@ service CatalogServ @(path : 'CatalogService') {
     entity BusinessPartenerSet as projection on master.businessPartner;
     entity AddressSet as projection on master.address;
 
-    @readonly                   //below entity set will be read only
+   // @readonly                   //below entity set will be read only
     entity EmployeeSet as projection on master.employees;
 
     entity ProductSet as projection on master.product;
