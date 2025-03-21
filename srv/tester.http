@@ -1,0 +1,69 @@
+// this file is used to test Odata locally. We need to put ### to generate send request button on every request
+//if we are not putting 3 # it will not create the send request button
+//we can use postman tool also for this but we need to first deploy the app for that.
+
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService
+
+//In this we have not put ### thats why send request button is not coming
+http://localhost:4004/odata/v4/CatalogService
+
+###get Metadata
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+
+###get Employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+### Pagnition 
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=2
+
+### test other service (FirstService)
+http://localhost:4004/odata/v4/FirstService/StudentSet
+
+//get the payload from get request
+
+### post call
+POST 
+http://localhost:4004/odata/v4/FirstService/StudentSet 
+Content-Type: application/json
+
+{
+      "HOUSENO": "b102 demo",
+      "STREET": "wakad demo",
+      "CITY": "Delhi demo",
+      "COUNTRY": "India demo",
+      "NAME": "Abhishek demo",
+      "CLASS_ID": "5",
+      "GENDER": "M"
+}
+
+### get student
+GET  http://localhost:4004/odata/v4/FirstService/StudentSet
+
+### patch to update student
+PATCH http://localhost:4004/odata/v4/FirstService/StudentSet/1
+Content-Type: application/json
+
+{
+  "COUNTRY": "Japan"
+}
+
+
+### delete
+DELETE http://localhost:4004/odata/v4/FirstService/StudentSet/1
+
+### calling an action with help of post, action will be post operation  //Pass value in place of {ID}
+POST http://localhost:4004/odata/v4/CatalogService/POSet/{ID}/boost
+Content-Type: application/json
+
+{}
+
+###calling CAP function which is bound to an instance, Function will be get call //Pass value in place of {ID}
+GET POST http://localhost:4004/odata/v4/CatalogService/POSet/1/largestOrder()
+
+###calling CAP function which is bound to an instance, Function will be get call //Pass value in place of {ID}
+GET POST http://localhost:4004/odata/v4/MyService/pokymon('Raichu')
+
+
+
