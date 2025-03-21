@@ -1,5 +1,5 @@
 const cds = require('@sap/cds');
-const { employees } = cds.entities(abhishek.db.master);
+const { employees } = cds.entities("abhishek.db.master");
 module.exports = async (srv) => {
 
     //there are hook methods on , before , after

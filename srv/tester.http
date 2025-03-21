@@ -65,6 +65,8 @@ GET POST http://localhost:4004/odata/v4/CatalogService/POSet/1/largestOrder()
 ###calling CAP function which is bound to an instance, Function will be get call //Pass value in place of {ID}
 GET POST http://localhost:4004/odata/v4/MyService/pokymon('Raichu')
 
+###test v2 service add v2 in the url after port number
+GET  http://localhost:4004/v2/odata/v4/FirstService/StudentSet
 
 
 

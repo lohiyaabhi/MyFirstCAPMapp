@@ -5,7 +5,7 @@ module.exports = cds.service.impl(async function () {     //this is normal funct
     
     //Generic handler - Give flexibility to add custom logic on top of what CAPM already offers.
 
-    this.before(['CREATE' , 'PATCH'], EmployeeSet, (req) =>{
+    this.before(['CREATE' , 'PATCH'], "EmployeeSet", (req) =>{
 
         if(parseFloat(req.data.salaryAmount) >= 100000){
 
