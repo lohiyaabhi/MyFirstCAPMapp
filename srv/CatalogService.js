@@ -66,4 +66,12 @@ module.exports = cds.service.impl(async function () {     //this is normal funct
         }
 
     });
+
+   //this method will set the cateory as beverage while creating new object
+    this.on('setproductCategory', async (req, res) => {
+        
+        return{
+            "CATEGORY" : 'Beverages'
+        }
+    })
 })

@@ -88,9 +88,10 @@ context transaction {
 
     }
     
-    entity poItems : customCommons.Amount {
-
-        Key NODE_KEY : customCommons.Guid;
+    entity poItems : cuid,  customCommons.Amount {
+        
+        //in place of NODE_KEY we can use cuid type which is provided by SAP
+        //Key NODE_KEY : customCommons.Guid;   //this will not generate automatic id while we create object
         PARENT_KEY : Association to purchaseOrder;
         PO_ITEM_POS : Integer;
         PRODUCT_GUID : Association to master.product;
