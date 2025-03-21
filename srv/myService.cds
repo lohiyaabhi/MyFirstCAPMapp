@@ -1,8 +1,16 @@
+using { Abhishek.cds} from '../db/CDSView';
 service MyService @(path: 'MyService'){
 
-    function pokymon(name : String(32) ) returns String;  //custom endPoint defined (this file acts like MPC)
-                    // implementation part we will do it in JS file with same name (Js file act like DPC)
-                    // this function is unbound not connected to any entity
+    //custom endPoint defined (this file acts like MPC)
+    // implementation part we will do it in JS file with same name (Js file act like DPC)
+    // this function is unbound not connected to any entity
+    function pokymon(name : String(32) ) returns String;  
+                    
+
+    entity ProductOrderSet as projection on cds.CDSView.ProductOrders{
+      *,
+      ProductOrders
+    };
 
 
      // unbound actions & functions

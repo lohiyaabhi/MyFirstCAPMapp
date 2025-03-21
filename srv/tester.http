@@ -67,3 +67,5 @@ GET POST http://localhost:4004/odata/v4/MyService/pokymon('Raichu')
 
 
 
+
+
