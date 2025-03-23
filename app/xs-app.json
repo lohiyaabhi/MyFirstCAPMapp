@@ -1,29 +1,29 @@
 {
-    "welcomeFile": "firstuiapp/webapp/",
-    "authenticationMethod": "route",
-    "sessionTimeout": 10,
-    "routes": [				
-      {
-        "source": "^/firstuiapp/webapp/(.*)$",
-        "target": "$1",
-        "localDir": "firstuiapp/webapp/",
-        "authenticationType":"xsuaa",
-        "csrfProtection": false
-      },
-      {
-        "source": "^/(.*)$",
-        "authenticationType":"xsuaa",
-        "destination": "srv-api",
-        "csrfProtection": false
-      },
-       {
-         "source": "^/user-api/currentUser$",
-         "target": "/currentUser",
-         "service": "sap-approuter-userapi"
-       }
-    ],
-    "logout": {
-       "logoutEndpoint": "/my/logout",
-       "logoutPage": "/logout-page.html"
-    }
-    }
+ "welcomeFile": "firstuiapp/webapp/",
+ "authenticationMethod": "route",
+ "sessionTimeout": 10,
+ "routes": [
+  {
+   "source": "^/firstuiapp/webapp/(.*)$",
+   "target": "$1",
+   "localDir": "firstuiapp/webapp/",
+   "authenticationType": "xsuaa",
+   "csrfProtection": false
+  },
+  {
+   "source": "^/(.*)$",
+   "authenticationType": "xsuaa",
+   "destination": "srv-api",
+   "csrfProtection": false
+  },
+  {
+   "source": "^/user-api/currentUser$",
+   "target": "/currentUser",
+   "service": "sap-approuter-userapi"
+  }
+ ],
+ "logout": {
+  "logoutEndpoint": "/my/logout",
+  "logoutPage": "/logout-page.html"
+ }
+}

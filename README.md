@@ -24,6 +24,15 @@ File or Folder | Purpose
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
 
+## how to add hana instance and create HDI container on Hana cloud
+this will create the HDI container on cloud with all the tables and Views in our app.
+Also this will generate the gen/db folder automatically with all HDB views and table.
+1) run command under app CAPMAPP 
+   cds deploy --to Hana:HDIContainerCAPMAPP
+
+Note : Above statement will create seperate HDI container (Design time artifcat)for each developer on cloud
+After we will complete developing application and do the deployment on cloud. there is module called db-deployer inside mta.yaml file which will create single container (Runtime artifact) for the app on SAP BTP which will be used by all the user who use that app.
+
 ## mock strategy for authorization at package.json file 
 
 "requires": {
@@ -66,3 +75,17 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
 now add all routing path in xs-app.json file
 6)After adding router we need to add deployment descriptor file
 
+## deployment descriptor file
+manifest.yaml - (old) deployment descriptor file
+mta.yaml - (new) deployment descriptor file 
+        - this is advance version of manifest.yaml
+        -it allows definition of all the modules and their dependencies (backing services like xsuaa) 
+1) run command under main folder (CAPMAPP)
+ cds add mta
+ Above command will create mta.yaml file automatically
+
+ Afte the deployment of the application. All the managed dependencies instances will be created automatically to BTP because of this file
+
+ ## build mta archieve file
+ 1)right click mta.yaml file and select option Build mta
+ 2)this will create mtar file under mta_archieve folder which is automatically generated.
