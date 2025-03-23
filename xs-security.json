@@ -1,0 +1,51 @@
+{
+  "xsappname": "node-CAPMAPP",
+  "scopes": [
+      {
+          "name": "$XSAPPNAME.Viewer",
+          "description": "View the data"
+      },
+      {
+          "name": "$XSAPPNAME.Admin",
+          "description": "Someone who can edit and view data"
+      }
+  ],
+  "attributes": [
+      {
+          "name": "BankName",
+          "description": "Bank name to provide row level security",
+          "valueType": "string"
+      }
+  ],
+  "role-templates": [
+      {
+          "name": "Viewer",
+          "description": "View all the employee",
+          "scope-references": [
+              "$XSAPPNAME.Viewer"
+          ],
+          "attribute-references": [
+              "BankName"
+          ]
+      },
+      {
+          "name": "Admin",
+          "description": "Edit, View employee data",
+          "scope-references": [
+              "$XSAPPNAME.Admin"
+          ]
+      }
+  ],
+  "oauth2-configuration": {
+      "token-validity": 900,
+      "refresh-token-validity": 1800,
+      "redirect-uris": [
+          "https://api.cf.us10-001.hana.ondemand.com/"
+      ],
+      "autoapprove": "false"
+  },
+  "authorities": [
+      "$ACCEPT_GRANT_AUTHORITIES"
+  ],
+  "xsenableasyncservice": "true"
+}

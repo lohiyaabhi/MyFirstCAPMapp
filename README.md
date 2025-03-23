@@ -23,3 +23,34 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+
+## mock strategy for authorization at package.json file 
+
+"requires": {
+      "db": "hana",
+      "uaa":{
+        "kind": "xsuaa"
+      },
+      "auth": {
+        "[development]":{
+          "strategy" : "mocked",
+          "users":{
+            "anubhav":{
+              "roles" : ["Viewer"],
+              "userAttributes":{
+                "BankName":["Bank of America"]
+              }
+            },
+            "ananya":{
+              "roles" : ["Viewer","Admin"],
+              "userAttributes":{
+                "BankName":["$UNRESTRICTED"]
+              }
+            }
+          }
+        },
+        "[production]":{
+          "strategy" : "JWT"
+        }
+      }
+    }
